@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Etch-a-Sketch</title>
+  </head>
+  <body>
+    <button>Reset</button>
+    <div class="main-grid"></div>
+  </body>
+
+  <script>
+    let gridContainer = document.querySelector(".main-grid");
+    let button = document.querySelector("button");
+    let size = 50;
+
+    button.addEventListener("click", (e) => {
+      size = prompt("What size do you want your grid to be?", 50);
+
+      while (size >= 101) {
+        alert("Value is too big, pick 100 or under");
+        size = prompt("What size do you want your grid to be?", 50);
+      }
+
+      drawGrid();
+    });
+
+    function changeDiv(e) {
+      e.srcElement.classList.add("hovered");
+    }
+
+    function drawGrid() {
+      gridContainer.innerHTML = "";
+
+      for (let i = 0; i < size; i++) {
+        let row = document.createElement("div");
+        row.classList.add("row");
+
+        for (let j = 0; j < size; j++) {
+          let cell = document.createElement("div");
+          cell.classList.add("cell");
+
+          row.appendChild(cell);
+          cell.addEventListener("mouseover", changeDiv);
+        }
+
+        gridContainer.appendChild(row);
+      }
+    }
+
+    drawGrid();
+  </script>
+</html>

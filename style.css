@@ -1,0 +1,23 @@
+.main-grid {
+  background-color: chocolate;
+  display: grid;
+  height: 97%;
+}
+
+.row {
+  background-color: aqua;
+  display: flex;
+}
+
+.cell {
+  background-color: blueviolet;
+  width: 100%;
+}
+
+.cell:hover {
+  background-color: crimson;
+}
+
+.hovered {
+  background-color: darkblue;
+}
